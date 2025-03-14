@@ -57,11 +57,11 @@
                             Me</a>
                         <a href="/projects"
                             class="relative hover:text-gray-600 transition-colors {{ request()->is('projects') ? 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black' : '' }}">Projects</a>
-                        <a href="/projects"
-                            class="relative hover:text-gray-600 transition-colors {{ request()->is('blogs') ? 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black' : '' }}">Blogs</a>
-                        <a href="/contact"
+                        {{-- <a href="/projects"
+                            class="relative hover:text-gray-600 transition-colors {{ request()->is('blogs') ? 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black' : '' }}">Blogs</a> --}}
+                        {{-- <a href="/contact"
                             class="relative hover:text-gray-600 transition-colors {{ request()->is('contact') ? 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black' : '' }}">Contact
-                            Me</a>
+                            Me</a> --}}
                     </div>
                     <button
                         class="px-6 py-3 bg-black text-white font-semibold rounded flex items-center gap-2 hover:bg-gray-800 transition-colors">

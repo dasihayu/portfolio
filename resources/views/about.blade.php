@@ -12,7 +12,7 @@
                     <h1 class="text-4xl md:text-5xl font-bold">About Me</h1>
                     <div class="w-20 h-1 bg-black"></div>
                     <p class="text-gray-600 text-lg">
-                        Hi! I'm Dasihayu, a passionate Fullstack Developer based in Jakarta, Indonesia.
+                        Hi! I'm Dasihayu, a passionate Fullstack Developer based in Semarang, Indonesia.
                         With 3 years of experience in web development, I enjoy creating elegant solutions
                         to complex problems.
                     </p>
@@ -34,10 +34,10 @@
                 <!-- Experience Card 1 -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold">Senior Web Developer</h3>
-                        <span class="text-gray-600">2022 - Present</span>
+                        <h3 class="text-xl font-bold">Internship Full Stack Web Developer</h3>
+                        <span class="text-gray-600">Juli 2024 - Maret 2025</span>
                     </div>
-                    <p class="text-gray-600 mb-4">Company Name</p>
+                    <p class="text-gray-600 mb-4">Ninedragon Labs</p>
                     <ul class="list-disc list-inside text-gray-600 space-y-2">
                         <li>Led development of multiple web applications</li>
                         <li>Implemented modern frontend frameworks</li>
@@ -48,10 +48,10 @@
                 <!-- Experience Card 2 -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold">Web Developer</h3>
-                        <span class="text-gray-600">2020 - 2022</span>
+                        <h3 class="text-xl font-bold">Internship Full Stack Web Developer</h3>
+                        <span class="text-gray-600">Juli 2023 - Desemeber 2023</span>
                     </div>
-                    <p class="text-gray-600 mb-4">Previous Company</p>
+                    <p class="text-gray-600 mb-4">Dinsutek</p>
                     <ul class="list-disc list-inside text-gray-600 space-y-2">
                         <li>Developed responsive websites</li>
                         <li>Collaborated with design team</li>
@@ -94,7 +94,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                     </svg>
-                    <span class="font-semibold block">Vue.js</span>
+                    <span class="font-semibold block">Laravel</span>
                 </div>
 
                 <!-- React -->
@@ -157,10 +157,10 @@
             <div class="max-w-3xl mx-auto">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold">Bachelor of Computer Science</h3>
-                        <span class="text-gray-600">2016 - 2020</span>
+                        <h3 class="text-xl font-bold">Pengembangan Perangkat Lunak dan Gim</h3>
+                        <span class="text-gray-600">2022 - 2025</span>
                     </div>
-                    <p class="text-gray-600">University Name</p>
+                    <p class="text-gray-600">SMK Negeri 8 Semarang</p>
                 </div>
             </div>
         </div>
