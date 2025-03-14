@@ -57,6 +57,8 @@
                             Me</a>
                         <a href="/projects"
                             class="relative hover:text-gray-600 transition-colors {{ request()->is('projects') ? 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black' : '' }}">Projects</a>
+                        <a href="/projects"
+                            class="relative hover:text-gray-600 transition-colors {{ request()->is('blogs') ? 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black' : '' }}">Blogs</a>
                         <a href="/contact"
                             class="relative hover:text-gray-600 transition-colors {{ request()->is('contact') ? 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black' : '' }}">Contact
                             Me</a>
@@ -89,6 +91,8 @@
                         Me</a>
                     <a href="/projects"
                         class="relative text-base font-bold hover:text-gray-600 transition-colors {{ request()->is('projects') ? 'text-black after:absolute after:bottom-0 after:left-0 after:w-8 after:h-0.5 after:bg-black' : 'text-gray-600' }}">Projects</a>
+                    <a href="/projects"
+                        class="relative text-base font-bold hover:text-gray-600 transition-colors {{ request()->is('blogs') ? 'text-black after:absolute after:bottom-0 after:left-0 after:w-8 after:h-0.5 after:bg-black' : 'text-gray-600' }}">Blogs</a>
                     <a href="/contact"
                         class="relative text-base font-bold hover:text-gray-600 transition-colors {{ request()->is('contact') ? 'text-black after:absolute after:bottom-0 after:left-0 after:w-8 after:h-0.5 after:bg-black' : 'text-gray-600' }}">Contact
                         Me</a>
