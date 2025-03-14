@@ -15,51 +15,43 @@
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                         <div
                             class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 
-                            transition-opacity duration-300 flex items-center justify-center">
+                         transition-opacity duration-300 flex items-center justify-center gap-4">
                             @if ($project->live_url)
                                 <a href="{{ $project->live_url }}"
-                                    class="px-6 py-2 bg-white text-black rounded-full font-semibold 
-                              hover:bg-gray-100 transition-colors mx-2"
+                                    class="px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-gray-100 transition-colors"
                                     target="_blank">
                                     Live Demo
                                 </a>
                             @endif
+                            @if ($project->github_url)
+                                <a href="{{ $project->github_url }}"
+                                    class="px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-gray-100 transition-colors"
+                                    target="_blank">
+                                    <i class="fab fa-github mr-1"></i> Code
+                                </a>
+                            @endif
                         </div>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-gray-800">{{ $project->name }}</h3>
+                    <div class="p-4 md:p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg md:text-xl font-bold">{{ $project->name }}</h3>
                             <span
                                 class="px-3 py-1 bg-gray-100 text-sm rounded-full 
-                               {{ $project->status === 'active'
-                                   ? 'text-green-600'
-                                   : ($project->status === 'completed'
-                                       ? 'text-blue-600'
-                                       : 'text-gray-600') }}">
+                            {{ $project->status === 'active'
+                                ? 'text-green-600'
+                                : ($project->status === 'completed'
+                                    ? 'text-blue-600'
+                                    : 'text-gray-600') }}">
                                 {{ ucfirst($project->status) }}
                             </span>
                         </div>
-                        <p class="text-gray-600 mb-4">{{ $project->description }}</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
+                        <p class="text-gray-600 mb-4 text-sm md:text-base">{{ $project->description }}</p>
+                        <div class="flex flex-wrap gap-2">
                             @foreach ($project->categories as $category)
-                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                                <span class="px-3 py-1 bg-gray-100 rounded-full text-xs md:text-sm">
                                     {{ $category->name }}
                                 </span>
                             @endforeach
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t">
-                            @if ($project->live_url)
-                                <a href="{{ $project->live_url }}" class="text-blue-600 hover:text-blue-800 text-sm"
-                                    target="_blank">
-                                    <i class="fas fa-external-link-alt mr-1"></i> View Live
-                                </a>
-                            @endif
-                            @if ($project->github_url)
-                                <a href="{{ $project->github_url }}" class="text-gray-600 hover:text-gray-800 text-sm"
-                                    target="_blank">
-                                    <i class="fab fa-github mr-1"></i> View Code
-                                </a>
-                            @endif
                         </div>
                     </div>
                 </div>
