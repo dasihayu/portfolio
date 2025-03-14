@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-4 py-8 h-screen">
         <div class="text-center mb-12">
             <h1 class="text-4xl font-bold text-gray-800 mb-4">My Projects</h1>
             <p class="text-xl text-gray-600">A collection of my recent work and projects</p>
