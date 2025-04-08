@@ -30,7 +30,7 @@
                         </li>
                         <li><a href="/about"
                                 class="text-gray-700 hover:text-blue-600 transition duration-300">About</a></li>
-                        <li><a href="/projects"
+                        <li><a href="{{ route('projects.index') }}"
                                 class="text-gray-700 hover:text-blue-600 transition duration-300">Projects</a></li>
                         <li><a href="{{ route('blogs.index') }}"
                                 class="text-gray-700 hover:text-blue-600 transition duration-300">Blogs</a></li>
