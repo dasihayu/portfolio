@@ -21,6 +21,8 @@ class TechnologyResource extends Resource
 
     protected static ?string $navigationLabel = 'Technologies';
 
+    protected static ?string $navigationGroup = 'Content Management';
+
     public static function form(Form $form): Form
     {
         return $form
