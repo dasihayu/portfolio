@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Portfolio')</title>
+    <title>Dasihayu - @yield('title', 'Portfolio')</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,9 +13,21 @@
     <!-- Styles -->
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-white shadow-sm">
-        <!-- Add your navigation here -->
+<body class="font-sans">
+    <nav class="mx-auto px-48 py-4 sticky top-0 bg-gray-50 z-10">
+        <div class="flex justify-between items-center">
+            <div>
+                <a href="/" class="text-2xl font-bold">Dasihayu</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <ul class="flex space-x-4">
+                    <li><a href="/" class="text-gray-700 hover:text-gray-900">Home</a></li>
+                    <li><a href="/about" class="text-gray-700 hover:text-gray-900">About</a></li>
+                    <li><a href="/projects" class="text-gray-700 hover:text-gray-900">Projects</a></li>
+                </ul>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">Contact Me</button>
+            </div>
+        </div>
     </nav>
 
     <main>
