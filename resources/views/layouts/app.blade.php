@@ -22,17 +22,17 @@
         <div class="container mx-auto">
             <div class="flex justify-between items-center">
                 <div>
-                    <a href="/" class="text-xl md:text-2xl font-bold text-gray-800">Dasihayu</a>
+                    <a href="{{ route('home') }}" class="text-xl md:text-2xl font-bold text-gray-800">Dasihayu</a>
                 </div>
                 <div class="flex items-center gap-4">
                     <ul class="hidden md:flex space-x-6">
-                        <li><a href="/" class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
+                        <li><a href="{{ route('home') }}" class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
                         </li>
                         <li><a href="/about"
                                 class="text-gray-700 hover:text-blue-600 transition duration-300">About</a></li>
                         <li><a href="/projects"
                                 class="text-gray-700 hover:text-blue-600 transition duration-300">Projects</a></li>
-                        <li><a href="/blogs"
+                        <li><a href="{{ route('blogs.index') }}"
                                 class="text-gray-700 hover:text-blue-600 transition duration-300">Blogs</a></li>
                     </ul>
                     <button

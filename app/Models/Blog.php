@@ -24,4 +24,20 @@ class Blog extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function previous()
+    {
+        return static::where('status', 'published')
+            ->where('created_at', '<', $this->created_at)
+            ->orderBy('created_at', 'desc')
+            ->first();
+    }
+
+    public function next()
+    {
+        return static::where('status', 'published')
+            ->where('created_at', '>', $this->created_at)
+            ->orderBy('created_at', 'asc')
+            ->first();
+    }
 }

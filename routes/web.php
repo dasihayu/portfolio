@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 
@@ -19,4 +20,7 @@ Livewire::setScriptRoute(function ($handle) {
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');

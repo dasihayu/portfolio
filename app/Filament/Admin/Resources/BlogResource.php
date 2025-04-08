@@ -48,9 +48,6 @@ class BlogResource extends Resource
                             ->required()
                             ->columnSpanFull(),
 
-                        RichEditor::make('excerpt')
-                            ->columnSpanFull(),
-
                         FileUpload::make('featured_image')
                             ->image()
                             ->directory('blog-images')
