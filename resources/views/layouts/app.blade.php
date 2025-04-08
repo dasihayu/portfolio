@@ -24,6 +24,7 @@
                     <li><a href="/" class="text-gray-700 hover:text-gray-900">Home</a></li>
                     <li><a href="/about" class="text-gray-700 hover:text-gray-900">About</a></li>
                     <li><a href="/projects" class="text-gray-700 hover:text-gray-900">Projects</a></li>
+                    <li><a href="/blogs" class="text-gray-700 hover:text-gray-900">Blogs</a></li>
                 </ul>
                 <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">Contact Me</button>
             </div>
