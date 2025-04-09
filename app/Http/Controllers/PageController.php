@@ -16,11 +16,40 @@ class PageController extends Controller
         $projects = Project::latest()
             ->take(3)
             ->get();
-        
+
         $blogs = Blog::where('status', 'published')
             ->latest()
             ->take(3)
             ->get();
+
+        if ($blogs->isEmpty()) {
+            $blogs = collect([
+                [
+                    'title' => 'Building Modern Web Applications with Laravel and Vue.js',
+                    'excerpt' => 'Learn how to create robust web applications using Laravel and Vue.js, with a focus on best practices and modern development workflows.',
+                    'slug' => 'building-modern-web-applications',
+                    'category' => 'Development',
+                    'image' => 'https://placehold.co/600x400',
+                    'published_at' => '2024-04-08',
+                ],
+                [
+                    'title' => 'Mastering TailwindCSS: Tips and Tricks for Clean UI Design',
+                    'excerpt' => 'Discover advanced techniques and best practices for building beautiful user interfaces using TailwindCSS utility-first framework.',
+                    'slug' => 'mastering-tailwindcss',
+                    'category' => 'Design',
+                    'image' => 'https://placehold.co/600x400',
+                    'published_at' => '2024-04-05',
+                ],
+                [
+                    'title' => 'Docker and Laravel: A Comprehensive Guide to Containerization',
+                    'excerpt' => 'Learn how to containerize your Laravel applications using Docker, making deployment and development workflows more efficient.',
+                    'slug' => 'docker-and-laravel-guide',
+                    'category' => 'DevOps',
+                    'image' => 'https://placehold.co/600x400',
+                    'published_at' => '2024-04-01',
+                ]
+            ]);
+        }
 
         $testimonials = Testimoni::where('is_active', 1)
             ->latest()
