@@ -57,7 +57,7 @@
 
             <!-- Pagination -->
             <div class="mt-12">
-                {{ $blogs->links() }}
+                {{ $projects->links() }}
             </div>
         </div>
     </section>
