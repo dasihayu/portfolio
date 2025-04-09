@@ -39,9 +39,6 @@ class TestimoniResource extends Resource
                             ->required()
                             ->maxLength(255),
 
-                        TextInput::make('company')
-                            ->maxLength(255),
-
                         Textarea::make('content')
                             ->required()
                             ->rows(3),
@@ -74,9 +71,6 @@ class TestimoniResource extends Resource
                     ->sortable(),
 
                 TextColumn::make('position')
-                    ->searchable(),
-
-                TextColumn::make('company')
                     ->searchable(),
 
                 TextColumn::make('rating')
