@@ -1,10 +1,10 @@
-<section class="py-20 bg-gray-50">
+<section class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <div class="container mx-auto px-4">
         <!-- Section Header -->
         <div class="text-center mb-16 space-y-4">
-            <span class="text-blue-600 font-medium">My Work</span>
-            <h2 class="text-4xl font-bold text-gray-900">Featured Projects</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            <span class="text-blue-600 dark:text-blue-400 font-medium">My Work</span>
+            <h2 class="text-4xl font-bold text-gray-900 dark:text-white">Featured Projects</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                 Here are some of my recent projects that showcase my skills and experience in web development.
             </p>
         </div>
@@ -13,7 +13,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Project Card -->
             @foreach ($projects as $project)
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
                     <div class="relative group">
                         <img src="{{ asset('storage/' . $project->image_url) }}" alt="{{ $project->name }}"
                             class="w-full h-48 object-cover">
@@ -44,12 +45,14 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ $project->name }}</h3>
-                        <p class="text-gray-600 mb-4">{{ $project->description }}</p>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{{ $project->name }}</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">{{ $project->description }}</p>
                         <div class="flex flex-wrap gap-2">
                             @foreach ($project->technologies as $technology)
                                 <span
-                                    class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">{{ $technology->name }}</span>
+                                    class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-sm">
+                                    {{ $technology->name }}
+                                </span>
                             @endforeach
                         </div>
                     </div>
