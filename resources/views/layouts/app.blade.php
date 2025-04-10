@@ -29,19 +29,20 @@
 
 <body class="font-sans">
     <nav
-        class="mx-auto px-4 lg:px-48 py-4 sticky top-0 bg-white dark:bg-gray-800 shadow z-10 transition-colors duration-300">
+        class="mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-4 sticky top-0 bg-white dark:bg-gray-800 shadow z-10 transition-colors duration-300">
         <div class="container mx-auto">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div>
-                    <a href="{{ route('home') }}" class="text-xl md:text-2xl font-bold text-gray-800 dark:text-white">
+                    <a href="{{ route('home') }}" 
+                        class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 dark:text-white tracking-tight">
                         Dasihayu
                     </a>
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="flex items-center gap-4">
-                    <ul class="hidden md:flex space-x-6">
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <ul class="hidden lg:flex space-x-3 xl:space-x-6">
                         @php
                             $navItems = [
                                 ['label' => 'Home', 'route' => 'home'],
@@ -66,7 +67,7 @@
 
                     <!-- Contact Button -->
                     <a href="{{ route('contact.index') }}"
-                        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 hidden md:block">
+                        class="bg-blue-600 text-white px-3 sm:px-4 py-2 text-sm sm:text-base rounded-lg hover:bg-blue-700 transition duration-300 hidden lg:block">
                         Contact Me
                     </a>
 
@@ -88,7 +89,7 @@
                         </button>
 
                         <!-- Mobile Menu Toggle -->
-                        <button id="menu-toggle" class="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none">
+                        <button id="menu-toggle" class="lg:hidden text-gray-700 dark:text-gray-300 focus:outline-none">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 6h16M4 12h16M4 18h16" />
@@ -99,22 +100,21 @@
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="md:hidden mt-4 hidden">
-                <ul class="space-y-3 pb-3">
+            <div id="mobile-menu" class="lg:hidden mt-4 hidden">
+                <ul class="space-y-4 py-4">
                     @foreach ($navItems as $item)
                         <li>
                             <a href="{{ route($item['route']) }}"
-                                class="transition duration-300 {{ request()->routeIs($item['route']) || ($item['route'] === 'blogs.index' && request()->routeIs('blogs.show'))
-                                    ? 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 dark:border-blue-400 pb-1'
+                                class="block px-2 py-2 text-base transition duration-300 {{ request()->routeIs($item['route']) || ($item['route'] === 'blogs.index' && request()->routeIs('blogs.show'))
+                                    ? 'text-blue-600 dark:text-blue-400 font-semibold'
                                     : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400' }}">
                                 {{ $item['label'] }}
                             </a>
-
                         </li>
                     @endforeach
-                    <li>
+                    <li class="pt-2">
                         <a href="{{ route('contact.index') }}"
-                            class="block w-full bg-blue-600 dark:bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition duration-300 text-center">
+                            class="block w-full bg-blue-600 dark:bg-blue-500 text-white px-4 py-2.5 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition duration-300 text-center">
                             Contact Me
                         </a>
                     </li>
