@@ -35,10 +35,10 @@
                         <li><a href="{{ route('blogs.index') }}"
                                 class="text-gray-700 hover:text-blue-600 transition duration-300">Blogs</a></li>
                     </ul>
-                    <button
+                    <a href="{{ route('contact.index') }}"
                         class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 hidden md:block">
                         Contact Me
-                    </button>
+                    </a>
                     <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
