@@ -28,7 +28,7 @@
                     <ul class="hidden md:flex space-x-6">
                         <li><a href="{{ route('home') }}" class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
                         </li>
-                        <li><a href="/about"
+                        <li><a href="{{ route('about.index') }}"
                                 class="text-gray-700 hover:text-blue-600 transition duration-300">About</a></li>
                         <li><a href="{{ route('projects.index') }}"
                                 class="text-gray-700 hover:text-blue-600 transition duration-300">Projects</a></li>
