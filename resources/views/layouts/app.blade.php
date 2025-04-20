@@ -15,6 +15,8 @@
 
     <!-- Styles -->
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
         // Check initial theme
@@ -28,21 +30,18 @@
 </head>
 
 <body class="font-sans">
-    <nav
-        class="mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-4 sticky top-0 bg-white dark:bg-gray-800 shadow z-10 transition-colors duration-300">
-        <div class="container mx-auto">
-            <div class="flex justify-between items-center">
+    <nav class="fixed w-full top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
                 <!-- Logo -->
-                <div>
-                    <a href="{{ route('home') }}" 
-                        class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 dark:text-white tracking-tight">
-                        Dasihayu
-                    </a>
-                </div>
+                <a href="{{ route('home') }}" 
+                    class="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent transition-all duration-300">
+                    Dasihayu
+                </a>
 
                 <!-- Desktop Menu -->
-                <div class="flex items-center gap-2 sm:gap-4">
-                    <ul class="hidden lg:flex space-x-3 xl:space-x-6">
+                <div class="hidden lg:flex items-center gap-8">
+                    <ul class="flex items-center gap-6">
                         @php
                             $navItems = [
                                 ['label' => 'Home', 'route' => 'home'],
@@ -55,74 +54,77 @@
                         @foreach ($navItems as $item)
                             <li>
                                 <a href="{{ route($item['route']) }}"
-                                    class="transition duration-300 {{ request()->routeIs($item['route']) || ($item['route'] === 'blogs.index' && request()->routeIs('blogs.show'))
-                                        ? 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 dark:border-blue-400 pb-1'
-                                        : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400' }}">
+                                    class="relative py-2 text-sm font-medium transition-colors duration-300 
+                                    {{ request()->routeIs($item['route']) || ($item['route'] === 'blogs.index' && request()->routeIs('blogs.show'))
+                                        ? 'text-blue-600 dark:text-blue-400'
+                                        : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400' }}">
                                     {{ $item['label'] }}
+                                    @if(request()->routeIs($item['route']) || ($item['route'] === 'blogs.index' && request()->routeIs('blogs.show')))
+                                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full"></span>
+                                    @endif
                                 </a>
-
                             </li>
                         @endforeach
                     </ul>
 
-                    <!-- Contact Button -->
-                    <a href="{{ route('contact.index') }}"
-                        class="bg-blue-600 text-white px-3 sm:px-4 py-2 text-sm sm:text-base rounded-lg hover:bg-blue-700 transition duration-300 hidden lg:block">
-                        Contact Me
-                    </a>
-
-                    <!-- Theme & Mobile Menu Button -->
                     <div class="flex items-center gap-4">
-                        <button id="theme-toggle" class="text-gray-700 dark:text-gray-300">
-                            <!-- Sun Icon -->
-                            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path
-                                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" />
-                            </svg>
-
-                            <!-- Moon Icon -->
-                            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor"
-                                viewBox="0 0 20 20">
+                        <!-- Theme Toggle -->
+                        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">
+                            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                             </svg>
-                        </button>
-
-                        <!-- Mobile Menu Toggle -->
-                        <button id="menu-toggle" class="lg:hidden text-gray-700 dark:text-gray-300 focus:outline-none">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h16M4 18h16" />
+                            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" />
                             </svg>
                         </button>
+
+                        <!-- Contact Button -->
+                        <a href="{{ route('contact.index') }}"
+                            class="inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25">
+                            Contact Me
+                        </a>
                     </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-4 lg:hidden">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <svg id="theme-toggle-mobile-dark-icon" class="hidden w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                        </svg>
+                        <svg id="theme-toggle-mobile-light-icon" class="hidden w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" />
+                        </svg>
+                    </button>
+                    <button id="menu-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
                 </div>
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="lg:hidden mt-4 hidden">
-                <ul class="space-y-4 py-4">
+            <div id="mobile-menu" class="lg:hidden hidden">
+                <div class="py-4 space-y-3">
                     @foreach ($navItems as $item)
-                        <li>
-                            <a href="{{ route($item['route']) }}"
-                                class="block px-2 py-2 text-base transition duration-300 {{ request()->routeIs($item['route']) || ($item['route'] === 'blogs.index' && request()->routeIs('blogs.show'))
-                                    ? 'text-blue-600 dark:text-blue-400 font-semibold'
-                                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400' }}">
-                                {{ $item['label'] }}
-                            </a>
-                        </li>
+                        <a href="{{ route($item['route']) }}"
+                            class="block px-4 py-2 text-base transition-colors duration-300 rounded-lg {{ request()->routeIs($item['route']) || ($item['route'] === 'blogs.index' && request()->routeIs('blogs.show'))
+                                ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30'
+                                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800' }}">
+                            {{ $item['label'] }}
+                        </a>
                     @endforeach
-                    <li class="pt-2">
+                    <div class="pt-2 px-4">
                         <a href="{{ route('contact.index') }}"
-                            class="block w-full bg-blue-600 dark:bg-blue-500 text-white px-4 py-2.5 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition duration-300 text-center">
+                            class="block w-full py-2.5 text-center rounded-full text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 transition-all duration-300">
                             Contact Me
                         </a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
-
 
     <script>
         document.getElementById('menu-toggle').addEventListener('click', function() {

@@ -53,7 +53,6 @@ class PageController extends Controller
 
         $testimonials = Testimoni::where('is_active', 1)
             ->latest()
-            ->take(3)
             ->get();
 
         if ($testimonials->isEmpty()) {
