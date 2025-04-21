@@ -20,7 +20,7 @@
                         class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/30 rounded-full border border-blue-100 dark:border-blue-800/50 backdrop-blur-sm">
                         About Me
                     </span>
-                    <h2 class="text-4xl font-bold">
+                    <h2 class="text-4xl font-bold dark:text-white">
                         Passionate Developer &
                         <span
                             class="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
